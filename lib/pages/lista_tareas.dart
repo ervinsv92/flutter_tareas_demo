@@ -17,9 +17,9 @@ class _ListaTareasState extends State<ListaTareas> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Lista Tareas"),
-      ),
+        appBar: AppBar(
+          title: Text("Lista Tareas"),
+        ),
       body: Column(
         children: [
           Expanded(
@@ -34,9 +34,7 @@ class _ListaTareasState extends State<ListaTareas> {
 
                 final tareas = snapshot.data;
                 if(tareas == null || tareas.isEmpty){
-                  return Center(
-                    child: Text("No hay tareas para mostrar"),
-                  );
+                  return mensajeNoHayDatos();
                 }
 
                 return ListView.builder(
@@ -85,4 +83,10 @@ class _ListaTareasState extends State<ListaTareas> {
       ),
     );
   }
+}
+
+Widget mensajeNoHayDatos(){
+  return Center(
+    child: Text("No hay tareas para mostrar"),
+  );
 }
